@@ -1,0 +1,7 @@
+---
+applications:
+- name: fiori_odata
+  path: srv/target/fiori_odata-exec.jar
+  random-route: true
+  services:
+  - fiori_odata-db
