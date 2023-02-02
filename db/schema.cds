@@ -8,22 +8,22 @@ entity Product {
 }
 
 entity Order {
-  ordernumber : Integer;
-  serialnumber_code : Association to Product on serialnumber_code.code = serialnumber;
-  key serialnumber : String; // FK
+  orderNumber : Integer;
+  serialNumber_code : Association to Product on serialNumber_code.code = serialNumber;
+  key serialNumber : String; // FK
   rating  : Decimal(10,1);
-  deliverytime : Integer;
+  deliveryTime : Integer;
   quantity : Integer;
-  orderdate : Timestamp;
+  orderDate : Timestamp;
 }
 
 entity Manufacturer {
   manufacturer_code : Association to Product on manufacturer_code.manufacturer = manufacturer;
   key manufacturer : String; // FK
-  countrycode : String;
-  foundingyear : Integer;
+  countryCode : String;
+  foundingYear : Integer;
 }
 
-entity OrderedProduct as SELECT from Product LEFT JOIN Order on serialnumber = code {
-  name, serialnumber, price, rating, deliverytime, quantity, orderdate
+entity OrderedProduct as SELECT from Product LEFT JOIN Order on serialNumber = code {
+  name, serialNumber, price, rating, deliveryTime, quantity, orderDate, manufacturer
 };
